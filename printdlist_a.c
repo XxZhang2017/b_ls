@@ -1,14 +1,22 @@
 #include "libft.h"
-void printdlist(stat_dlist *dl)
+void printdlist_a(stat_dlist *dl)
 {
   stat_node *tmp;
   tmp = dl->head;
+  int	count;
+
   if(dl != NULL || dl->head != NULL)
   {
     while (tmp != NULL)
     {
-      printf("inode: %llu and the name %s\n", tmp->stat_info->st_ino, tmp->sname);
-      tmp = tmp->next;
-    }
+		count = 1;
+		while (tmp != NULL && count <= 4)
+		{
+			printf("%-*s",dl->maxlen, tmp->sname);
+			tmp = tmp->next;
+			count++;
+		}
+			printf("\n");
+	}
   }
 }
