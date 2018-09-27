@@ -38,6 +38,16 @@ typedef			struct stat_dlist
  unsigned long	totalsize;
 }			stat_dlist;
 
+typedef			struct ls_flag
+{
+	int		l;
+	int		a;
+	int		t;
+	int		r;
+	int		error;
+	
+}				ls_flag;
+
 void		init_node(stat_node *n, s_stat *data, char *m, char *u, char *g);
 stat_dlist	*init_dlist();
 
@@ -54,11 +64,13 @@ void		printdlist_l(stat_dlist *dl);
 void		updatelen(unsigned int *a, unsigned int b);
 
 
-
+ls_flag		*initflag();
 
 stat_dlist	getnodeinfo(stat_dlist *a, int c);
 void		printnode(stat_node *a);
-
+int			validflag(char *c, ls_flag *fg);
 
 void		sort_list(stat_dlist *l);
+
+int			parse_flag(int n, char **c, ls_flag *fg);
 #endif
