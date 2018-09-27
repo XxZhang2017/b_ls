@@ -6,7 +6,7 @@
 /*   By: xinzhang <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/23 21:05:09 by xinzhang          #+#    #+#             */
-/*   Updated: 2018/09/25 17:26:51 by xinzhang         ###   ########.fr       */
+/*   Updated: 2018/09/26 21:38:49 by xinzhang         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@ stat_dlist	*init_dlist()
 	dlist->tail = NULL;
 	dlist->count = 0;
 	dlist->maxlen = 0;
+	dlist->totalsize = 0;
 	return (dlist);
 }
 

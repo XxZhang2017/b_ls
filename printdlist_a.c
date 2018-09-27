@@ -1,14 +1,16 @@
 #include "libft.h"
+
 void printdlist_a(stat_dlist *dl)
 {
-  stat_node *tmp;
-  tmp = dl->head;
-  int	count;
+	stat_node *tmp;
+	int	count;
 
-  if(dl != NULL || dl->head != NULL)
-  {
-    while (tmp != NULL)
-    {
+	sort_list(dl);
+	tmp = dl->head;
+	if(dl != NULL || dl->head != NULL)
+	{
+	while (tmp != NULL)
+	{
 		count = 1;
 		while (tmp != NULL && count <= 4)
 		{
@@ -18,5 +20,5 @@ void printdlist_a(stat_dlist *dl)
 		}
 			printf("\n");
 	}
-  }
+	}
 }

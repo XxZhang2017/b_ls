@@ -1,40 +1,37 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   appendnode.c                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: xinzhang <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2018/09/26 14:53:34 by xinzhang          #+#    #+#             */
+/*   Updated: 2018/09/26 22:58:37 by xinzhang         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "libft.h"
+
 stat_dlist *appendnode(stat_dlist *dlist, s_stat *data, char *name, char *usr, char *gname)
 {
 	printf("in stat_dlist\n");
-	if (dlist == NULL)
-	{
-		stat_dlist *dlist;
-		stat_node *tmp = (stat_node *)malloc(sizeof(stat_node));
-		
-		init_node(tmp, data, name, usr, gname);
+	stat_node	*tmp;
 
+	tmp = (stat_node *)malloc(sizeof(stat_node));
+	init_node(tmp, data, name, usr, gname);
+	if (dlist == NULL)
 		dlist = init_dlist();
-		dlist->head = tmp;
-		dlist->tail = tmp;
-		tmp->next = NULL;
-		(dlist->count)++;
-		updatelen(&dlist->maxlen, strlen(tmp->sname));
-	}
-	else if (dlist->head == NULL && dlist->tail == NULL)
+	if (dlist->head == NULL && dlist->tail == NULL)
 	{
-		stat_node *tmp = (stat_node *)malloc(sizeof(stat_node));
-		
-		init_node(tmp, data, name, usr, gname);
-		
 		dlist->head = tmp;
 		dlist->tail = tmp;
-		updatelen(&dlist->maxlen, strlen(tmp->sname));
 	}
 	else
 	{
-		stat_node *ptr = (stat_node *)malloc(sizeof(stat_node));
-
-		init_node(ptr, data, name, usr, gname);
-
-		dlist->tail->next = ptr;
-		dlist->tail = ptr;
-		updatelen(&dlist->maxlen, strlen(ptr->sname));
+		dlist->tail->next = tmp;
+		dlist->tail = tmp;
 	}
+	(dlist->count)++;
+	updatelen(&(dlist->maxlen), strlen(tmp->sname));
 	return (dlist);
 }

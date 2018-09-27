@@ -10,10 +10,13 @@
 # include <sys/types.h>
 # include <pwd.h>
 # include <grp.h>
+# include <time.h>
 
 typedef	struct stat			s_stat;
 typedef struct passwd		s_passwd;
 typedef struct group		s_group;
+typedef	struct tm			tm;
+
 typedef			struct stat_node
 {
  s_stat			*stat_info;
@@ -32,17 +35,30 @@ typedef			struct stat_dlist
  stat_node		*tail;
  unsigned int			maxlen;
  int			count;
+ unsigned long	totalsize;
 }			stat_dlist;
 
+void		init_node(stat_node *n, s_stat *data, char *m, char *u, char *g);
+stat_dlist	*init_dlist();
+
 stat_dlist	*appendnode(stat_dlist *dlist, s_stat *data, char *c, char *u, char *g);
+
 stat_dlist	deletenode(stat_dlist *dlist);
+
 void		stat_info(stat_dlist *dlist, char *fn);
 void		printdlist_a(stat_dlist *dl);
 void		printdlist_l(stat_dlist *dl);
-stat_dlist	*init_dlist();
+
+
+
 void		updatelen(unsigned int *a, unsigned int b);
-void		init_node(stat_node *n, s_stat *data, char *m, char *u, char *g);
+
+
+
+
 stat_dlist	getnodeinfo(stat_dlist *a, int c);
 void		printnode(stat_node *a);
 
+
+void		sort_list(stat_dlist *l);
 #endif

@@ -6,7 +6,7 @@
 /*   By: xinzhang <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/23 15:53:00 by xinzhang          #+#    #+#             */
-/*   Updated: 2018/09/25 20:39:12 by xinzhang         ###   ########.fr       */
+/*   Updated: 2018/09/26 21:51:53 by xinzhang         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,13 @@
 void printdlist_l(stat_dlist *dl)
 {
 	stat_node *tmp;
+	tm	*mytime;
+	char buff[30];
+	
+	sort_list(dl);
 	tmp = dl->head;
-	printf("total ");
+	printf("total %lu\n", dl->totalsize);
+
 	printf("\n");
 	if(dl != NULL || dl->head != NULL)
 	{
@@ -39,6 +44,9 @@ void printdlist_l(stat_dlist *dl)
 			printf("%llu ", tmp->stat_info->st_size); 
 			printf("%s  ", tmp->uname);
 			printf("%s   ", tmp->gname);
+			mytime = localtime(&(tmp->stat_info->st_atime));
+			strftime(buff, 30, "%b %d %H:%M", mytime);
+			printf("%s  ", buff);     
 			printf("%s\n", tmp->sname);
 		}
 		tmp = tmp->next;
