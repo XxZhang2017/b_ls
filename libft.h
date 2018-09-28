@@ -38,6 +38,13 @@ typedef			struct stat_dlist
  unsigned long	totalsize;
 }			stat_dlist;
 
+typedef			struct param
+{
+	ls_flag		fg;
+	char		*pdname;
+}				param
+	
+
 typedef			struct ls_flag
 {
 	int		l;
