@@ -1,27 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   initflag.c                                         :+:      :+:    :+:   */
+/*   init_param.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: xinzhang <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/09/27 10:06:03 by xinzhang          #+#    #+#             */
-/*   Updated: 2018/09/27 10:26:33 by xinzhang         ###   ########.fr       */
+/*   Created: 2018/09/28 23:13:05 by xinzhang          #+#    #+#             */
+/*   Updated: 2018/09/28 23:28:52 by xinzhang         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-ls_flag	*initflag()
+param	*init_param()
 {
-	ls_flag *fg;
+	param	*pa;
 
-	fg = (ls_flag *)malloc(sizeof(ls_flag));
-	fg->l = 0;
-	fg->a = 0;
-	fg->r = 0;
-	fg->t = 0;
-	fg->error = 0;
-	return fg;
+	pa = (param *)malloc(sizeof(param));
+	pa->fg = 0;
+	pa->error = 0;
+	pa->pdname = NULL;
+	pa->isfn =0;
+
+	return (pa);
 }
-

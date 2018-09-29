@@ -12,10 +12,23 @@
 # include <grp.h>
 # include <time.h>
 
+# define LS_a	1
+# define LS_l	2
+# define LS_t	4
+# define LS_r	8
+
 typedef	struct stat			s_stat;
 typedef struct passwd		s_passwd;
 typedef struct group		s_group;
 typedef	struct tm			tm;
+
+typedef			struct param
+{
+	int			fg;
+	int			error;
+ 	char		*pdname;
+	int			isfn;
+}				param;
 
 typedef			struct stat_node
 {
@@ -29,34 +42,18 @@ typedef			struct stat_node
  struct stat_node	*next;
 }			stat_node;
 
-typedef			struct stat_dlist
+typedef				struct stat_dlist
 {
- stat_node		*head;
- stat_node		*tail;
- unsigned int			maxlen;
- int			count;
- unsigned long	totalsize;
-}			stat_dlist;
-
-typedef			struct param
-{
-	ls_flag		fg;
-	char		*pdname;
-}				param
-	
-
-typedef			struct ls_flag
-{
-	int		l;
-	int		a;
-	int		t;
-	int		r;
-	int		error;
-	
-}				ls_flag;
+	param			*pa;
+	stat_node		*head;
+	stat_node		*tail;
+	unsigned int	maxlen;
+	int				count;
+	unsigned long	totalsize;
+}					stat_dlist;
 
 void		init_node(stat_node *n, s_stat *data, char *m, char *u, char *g);
-stat_dlist	*init_dlist();
+stat_dlist	*init_dlist(param *p);
 
 stat_dlist	*appendnode(stat_dlist *dlist, s_stat *data, char *c, char *u, char *g);
 
@@ -71,13 +68,18 @@ void		printdlist_l(stat_dlist *dl);
 void		updatelen(unsigned int *a, unsigned int b);
 
 
-ls_flag		*initflag();
-
 stat_dlist	getnodeinfo(stat_dlist *a, int c);
 void		printnode(stat_node *a);
-int			validflag(char *c, ls_flag *fg);
 
 void		sort_list(stat_dlist *l);
 
-int			parse_flag(int n, char **c, ls_flag *fg);
+int         parsing(int ac, char **av, param *pa);
+
+int         parse_options(char *s, int *flags);
+
+static int  ft_strchr_index(char *s, int c);
+
+char        *parse_path(char *c, char *p, int *a);
+
+param *     init_param();
 #endif
