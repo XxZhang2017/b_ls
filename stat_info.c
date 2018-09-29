@@ -6,7 +6,7 @@
 /*   By: xinzhang <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/23 21:56:06 by xinzhang          #+#    #+#             */
-/*   Updated: 2018/09/26 23:01:18 by xinzhang         ###   ########.fr       */
+/*   Updated: 2018/09/29 14:03:07 by xinzhang         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ void stat_info(stat_dlist *dlist, char *fn)
 		*infoptr = (s_stat *)malloc(sizeof(struct stat));
 		
 		dname = strdup(dir->d_name);
-		lstat(dir->d_name, *infoptr);
+		lstat(dlist->pa->pdname, *infoptr);
 		psd = getpwuid((*infoptr)->st_uid);
 		usrname = strdup(psd->pw_name);
 		grp = getgrgid((*infoptr)->st_gid);

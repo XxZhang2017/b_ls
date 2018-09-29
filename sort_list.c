@@ -6,13 +6,13 @@
 /*   By: xinzhang <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/25 21:44:53 by xinzhang          #+#    #+#             */
-/*   Updated: 2018/09/26 14:35:23 by xinzhang         ###   ########.fr       */
+/*   Updated: 2018/09/29 16:15:35 by xinzhang         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	sort_list(stat_dlist *l)
+void	sort_list(stat_dlist *l, SORT_PTR sort)
 {
 	stat_node	*sn;
 	stat_node	*tmp;
@@ -29,7 +29,7 @@ void	sort_list(stat_dlist *l)
 		sn = l->head;
 		while ( sn != NULL && sn->next != NULL)
 		{
-			if (strcmp(sn->sname, sn->next->sname) > 0)
+			if (sort(sn->sname, sn->next->sname) > 0)
 			{
 				flag = 1;
 				if (pre == NULL)

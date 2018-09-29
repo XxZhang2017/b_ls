@@ -6,7 +6,7 @@
 /*   By: xinzhang <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/26 14:53:34 by xinzhang          #+#    #+#             */
-/*   Updated: 2018/09/28 23:41:17 by xinzhang         ###   ########.fr       */
+/*   Updated: 2018/09/29 14:03:16 by xinzhang         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 stat_dlist *appendnode(stat_dlist *dlist, s_stat *data, char *name, char *usr, char *gname)
 {
-	printf("in stat_dlist\n");
+//	printf("in stat_dlist\n");
 	stat_node	*tmp;
 
 	tmp = (stat_node *)malloc(sizeof(stat_node));

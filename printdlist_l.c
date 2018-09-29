@@ -6,7 +6,7 @@
 /*   By: xinzhang <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/23 15:53:00 by xinzhang          #+#    #+#             */
-/*   Updated: 2018/09/26 21:51:53 by xinzhang         ###   ########.fr       */
+/*   Updated: 2018/09/29 16:13:36 by xinzhang         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,6 @@ void printdlist_l(stat_dlist *dl)
 	tm	*mytime;
 	char buff[30];
 	
-	sort_list(dl);
 	tmp = dl->head;
 	printf("total %lu\n", dl->totalsize);
 

@@ -6,7 +6,7 @@
 /*   By: xinzhang <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/28 23:38:16 by xinzhang          #+#    #+#             */
-/*   Updated: 2018/09/28 23:48:16 by xinzhang         ###   ########.fr       */
+/*   Updated: 2018/09/29 13:57:10 by xinzhang         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 
 int			parsing(int ac, char **av, param *p)//int *flags, char *dn)
 {
+	printf("parsing\n");
 	int	i;
 
 	p->fg = 0;

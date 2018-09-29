@@ -32,14 +32,14 @@ typedef			struct param
 
 typedef			struct stat_node
 {
- s_stat			*stat_info;
- char			*sname;
- char			*uname;
- char			*gname;
+	s_stat			*stat_info;
+	char			*sname;
+	char			*uname;
+	char			*gname;
  
- unsigned int			fsize;
+	unsigned int	fsize;
 
- struct stat_node	*next;
+	struct stat_node	*next;
 }			stat_node;
 
 typedef				struct stat_dlist
@@ -52,6 +52,13 @@ typedef				struct stat_dlist
 	unsigned long	totalsize;
 }					stat_dlist;
 
+// function pointer:
+typedef		int (*SORT_PTR)(char *, char *);
+
+
+
+
+//function definition:
 void		init_node(stat_node *n, s_stat *data, char *m, char *u, char *g);
 stat_dlist	*init_dlist(param *p);
 
@@ -71,7 +78,7 @@ void		updatelen(unsigned int *a, unsigned int b);
 stat_dlist	getnodeinfo(stat_dlist *a, int c);
 void		printnode(stat_node *a);
 
-void		sort_list(stat_dlist *l);
+void		sort_list(stat_dlist *li, int (*f)(char *, char *));
 
 int         parsing(int ac, char **av, param *pa);
 
@@ -82,4 +89,5 @@ static int  ft_strchr_index(char *s, int c);
 char        *parse_path(char *c, char *p, int *a);
 
 param *     init_param();
+
 #endif
