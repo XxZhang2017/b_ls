@@ -54,7 +54,7 @@ typedef				struct stat_dlist
 
 // function pointer:
 typedef		int (*SORT_PTR)(char *, char *);
-
+typedef		int	(*TIME_PTR)(time_t, time_t);
 
 
 
@@ -78,7 +78,9 @@ void		updatelen(unsigned int *a, unsigned int b);
 stat_dlist	getnodeinfo(stat_dlist *a, int c);
 void		printnode(stat_node *a);
 
-void		sort_list(stat_dlist *li, int (*f)(char *, char *));
+void		sort_list_order(stat_dlist *li, int (*f)(char *, char *));
+void		sort_list_time(stat_dlist *li, int (*f)(time_t, time_t));
+void		sort_list_time_order(stat_dlist *l, TIME_PTR t, SORT_PTR s);
 
 int         parsing(int ac, char **av, param *pa);
 
@@ -90,4 +92,6 @@ char        *parse_path(char *c, char *p, int *a);
 
 param *     init_param();
 
+
+void		display_condition(stat_dlist *dl);
 #endif

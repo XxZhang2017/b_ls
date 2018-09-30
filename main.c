@@ -1,15 +1,25 @@
 #include "libft.h"
 
-int sorted(char *a, char *b)
+/*int sort_mtime(time_t t1, time_t t2)
 {
+    return (t1 - t2);
+}
+
+int re_sort_mtime(time_t t1, time_t t2)
+{
+    return (t2 - t1);
+}
+
+int sorted(char *a, char *b)
+{   
     return strcmp(a, b);
 }
 
 int re_sorted(char *a, char *b)
-{
+{   
     return (-strcmp(a, b));
 }
-
+*/
 int main(int argc, char **argv)
 {
 	param *pa;
@@ -30,23 +40,26 @@ int main(int argc, char **argv)
 	if (dl->pa->fg & LS_r)
 		printf("-r\n");
 */
-	printf("%s\n", dl->pa->pdname);
+/*	printf("%s\n", dl->pa->pdname);
 	if (dl->pa->pdname == NULL)
 	{
 		dl->pa->pdname = strdup(".");
 		printf("file name %s\n", dl->pa->pdname);
-	}
+	}*/
 
 
 //	stat_info(dl, "/nfs/2018/x/xinzhang/mylocation/cadet_exe");
 	stat_info(dl, dl->pa->pdname);
 
-	sort_list(dl, sorted);
+/*	sort_list(dl, sorted);
+	
 	printf("sort from small to large\n");
 	printdlist_a(dl);
     printf("-------------------\n");
     sort_list(dl, re_sorted);
     printf("sort from large to small\n");
     printdlist_a(dl);
+*/
+	display_condition(dl);
 	return (0);
 }

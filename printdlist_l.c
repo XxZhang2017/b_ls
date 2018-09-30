@@ -6,7 +6,7 @@
 /*   By: xinzhang <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/23 15:53:00 by xinzhang          #+#    #+#             */
-/*   Updated: 2018/09/29 16:13:36 by xinzhang         ###   ########.fr       */
+/*   Updated: 2018/09/30 10:45:43 by xinzhang         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,6 @@ void printdlist_l(stat_dlist *dl)
 	{
 		if(tmp->sname[0] != '.')
 		{
-			printf((S_ISDIR(tmp->stat_info->st_mode)) ? "d" : "-");
 			printf((tmp->stat_info->st_mode & S_IRUSR) ? "r" : "-");
 			printf((tmp->stat_info->st_mode & S_IWUSR) ? "w" : "-");
 			printf((tmp->stat_info->st_mode & S_IXUSR) ? "x" : "-");
@@ -40,10 +39,11 @@ void printdlist_l(stat_dlist *dl)
 			printf((tmp->stat_info->st_mode & S_IXOTH) ? "x" : "-");
 			printf("  ");
 			printf("%d ", tmp->stat_info->st_nlink); 	
-			printf("%llu ", tmp->stat_info->st_size); 
+			
 			printf("%s  ", tmp->uname);
 			printf("%s   ", tmp->gname);
-			mytime = localtime(&(tmp->stat_info->st_atime));
+			printf("%llu ", tmp->stat_info->st_size); 
+			mytime = localtime(&(tmp->stat_info->st_mtimespec.tv_sec));
 			strftime(buff, 30, "%b %d %H:%M", mytime);
 			printf("%s  ", buff);     
 			printf("%s\n", tmp->sname);

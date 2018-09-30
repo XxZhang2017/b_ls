@@ -6,13 +6,23 @@
 /*   By: xinzhang <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/25 21:44:53 by xinzhang          #+#    #+#             */
-/*   Updated: 2018/09/29 16:15:35 by xinzhang         ###   ########.fr       */
+/*   Updated: 2018/09/30 10:41:00 by xinzhang         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	sort_list(stat_dlist *l, SORT_PTR sort)
+/*int sorted(char *a, char *b)
+{
+    return strcmp(a, b);
+}
+
+int re_sorted(char *a, char *b)
+{
+    return (-strcmp(a, b));
+}
+*/
+void	sort_list_time_order(stat_dlist *l, TIME_PTR t, SORT_PTR sort)
 {
 	stat_node	*sn;
 	stat_node	*tmp;
@@ -29,7 +39,8 @@ void	sort_list(stat_dlist *l, SORT_PTR sort)
 		sn = l->head;
 		while ( sn != NULL && sn->next != NULL)
 		{
-			if (sort(sn->sname, sn->next->sname) > 0)
+			if (t(sn->stat_info->st_mtimespec.tv_sec,  
+						sn->next->stat_info->st_mtimespec.tv_sec) == 0 && sort(sn->sname, sn->next->sname) > 0) 
 			{
 				flag = 1;
 				if (pre == NULL)
