@@ -1,30 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   init_dlist.c                                       :+:      :+:    :+:   */
+/*   print.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: xinzhang <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/09/23 21:05:09 by xinzhang          #+#    #+#             */
-<<<<<<< Updated upstream
-/*   Updated: 2018/09/26 21:38:49 by xinzhang         ###   ########.fr       */
-=======
-/*   Updated: 2018/09/30 15:01:41 by xinzhang         ###   ########.fr       */
->>>>>>> Stashed changes
+/*   Created: 2018/10/01 19:03:46 by xinzhang          #+#    #+#             */
+/*   Updated: 2018/10/01 20:05:46 by xinzhang         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
 
-stat_dlist	*init_dlist()
-{
-	stat_dlist	*dlist;
-	dlist = (stat_dlist *)malloc(sizeof(stat_dlist));
-	dlist->head = NULL;
-	dlist->tail = NULL;
-	dlist->count = 0;
-	dlist->maxlen = 0;
-	dlist->totalsize = 0;
-	return (dlist);
-}
 
+//void	print_permission_option(stat_node *tmp, param *p);
+void	print_permission(stat_node *tmp);
+void	print_type(stat_node *tmp);
+void	print_time(stat_node *tmp);
+void	print_stats(stat_node *tmp);

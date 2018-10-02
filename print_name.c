@@ -1,30 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   init_dlist.c                                       :+:      :+:    :+:   */
+/*   print_name.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: xinzhang <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/09/23 21:05:09 by xinzhang          #+#    #+#             */
-<<<<<<< Updated upstream
-/*   Updated: 2018/09/26 21:38:49 by xinzhang         ###   ########.fr       */
-=======
-/*   Updated: 2018/09/30 15:01:41 by xinzhang         ###   ########.fr       */
->>>>>>> Stashed changes
+/*   Created: 2018/10/01 20:06:45 by xinzhang          #+#    #+#             */
+/*   Updated: 2018/10/01 20:30:21 by xinzhang         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+#include "print.h"
 
-stat_dlist	*init_dlist()
+void	print_name(stat_node *tmp, stat_dlist *dl)
 {
-	stat_dlist	*dlist;
-	dlist = (stat_dlist *)malloc(sizeof(stat_dlist));
-	dlist->head = NULL;
-	dlist->tail = NULL;
-	dlist->count = 0;
-	dlist->maxlen = 0;
-	dlist->totalsize = 0;
-	return (dlist);
-}
+	char path[255];
+	char linkpath[255];
+	int reg;
 
+	path = strcat(dl->d_name, "/");
+	path = strcat(&path, tmp->sname);
+	if((reg = readlink(path, linkpath, sizeof(linkpath)) != 0))
+	{
+		linkpath[reg] = '\0';
+		printf("%s -> %s\n", tmp->sname, linkpath);
+	}
+	else
+		printf("%s\n", tmp->sname);
+}

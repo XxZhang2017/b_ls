@@ -31,12 +31,26 @@ typedef			struct stat_node
 
 typedef			struct stat_dlist
 {
+<<<<<<< Updated upstream
  stat_node		*head;
  stat_node		*tail;
  unsigned int			maxlen;
  int			count;
  unsigned long	totalsize;
 }			stat_dlist;
+=======
+	param			*pa;
+	stat_node		*head;
+	stat_node		*tail;
+	unsigned int	maxlen;
+	int				count;
+	long long		totalsize;
+}					stat_dlist;
+
+// function pointer:
+typedef		int (*SORT_PTR)(char *, char *);
+typedef		int	(*TIME_PTR)(time_t, time_t);
+>>>>>>> Stashed changes
 
 void		init_node(stat_node *n, s_stat *data, char *m, char *u, char *g);
 stat_dlist	*init_dlist();
