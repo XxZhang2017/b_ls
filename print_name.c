@@ -6,7 +6,7 @@
 /*   By: xinzhang <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/10/01 20:06:45 by xinzhang          #+#    #+#             */
-/*   Updated: 2018/10/02 21:52:29 by xinzhang         ###   ########.fr       */
+/*   Updated: 2018/10/02 23:33:22 by xinzhang         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ void	print_name(stat_node *tmp, stat_dlist *dl)
 	strcat(path, "/");
 //	printf("%s\n", path);
 	strcat(path, tmp->sname);
-	printf("%s\n", path);
+//	printf("%s\n", path);
 	if((reg = readlink(path, linkpath, 255) != -1))
 	{
 		linkpath[reg * 8] = '\0';

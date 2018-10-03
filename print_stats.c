@@ -6,7 +6,7 @@
 /*   By: xinzhang <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/10/01 19:56:31 by xinzhang          #+#    #+#             */
-/*   Updated: 2018/10/02 23:31:54 by xinzhang         ###   ########.fr       */
+/*   Updated: 2018/10/02 23:34:11 by xinzhang         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ void	print_stats(stat_node *tmp, param *p)
 		printf("%d ", tmp->stat_info->st_nlink);
 		printf("%s  ", tmp->uname);
 		printf("%s   ", tmp->gname);
-		printf("%llu \n", tmp->stat_info->st_size);
+		printf("%llu ", tmp->stat_info->st_size);
 	}
 	else
 	{
@@ -28,7 +28,7 @@ void	print_stats(stat_node *tmp, param *p)
 			printf("%d ", tmp->stat_info->st_nlink);
         	printf("%s  ", tmp->uname);
          	printf("%s   ", tmp->gname);
-         	printf("%llu \n", tmp->stat_info->st_size);
+         	printf("%llu ", tmp->stat_info->st_size);
 		}
 	}
 }

@@ -6,7 +6,7 @@
 /*   By: xinzhang <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/10/02 22:07:50 by xinzhang          #+#    #+#             */
-/*   Updated: 2018/10/02 23:21:57 by xinzhang         ###   ########.fr       */
+/*   Updated: 2018/10/02 23:33:42 by xinzhang         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ void	print_type(stat_node *n, param *pa)
 		printf((n->stat_info->st_mode & S_IFCHR) ? "c" : "");
 		printf((n->stat_info->st_mode & S_IFSOCK) ? "s" : "");
 		printf((n->stat_info->st_mode & S_IFREG) ? "-" : "");
-		printf("\n");
+//		printf("\n");
 	}
 	else
 	{
@@ -39,7 +39,7 @@ void	print_type(stat_node *n, param *pa)
 			printf(((n->stat_info->st_mode & S_IFMT) == S_IFCHR) ? "c" : "");
 			printf(((n->stat_info->st_mode & S_IFMT) == S_IFSOCK) ? "s" : "");
 			printf(((n->stat_info->st_mode & S_IFMT) == S_IFREG) ? "-" : "");
-			printf("\n");
+//			printf("\n");
 		}
 	}
 }

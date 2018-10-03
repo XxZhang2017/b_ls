@@ -6,7 +6,7 @@
 /*   By: xinzhang <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/10/02 20:40:12 by xinzhang          #+#    #+#             */
-/*   Updated: 2018/10/02 23:31:33 by xinzhang         ###   ########.fr       */
+/*   Updated: 2018/10/02 23:32:54 by xinzhang         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,10 +73,10 @@ int main(int argc, char **argv)
 	stn = dl->head;
 	while (stn)
 	{
-//		print_type(stn, dl->pa);
+		print_type(stn, dl->pa);
 		print_stats(stn, dl->pa);
-//		print_time(stn, dl->pa);
-//		print_name(stn, dl);
+		print_time(stn, dl->pa);
+		print_name(stn, dl);
 		stn = stn->next;
 	}
 //	display_condition(dl);
