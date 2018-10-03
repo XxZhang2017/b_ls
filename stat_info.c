@@ -6,11 +6,8 @@
 /*   By: xinzhang <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/23 21:56:06 by xinzhang          #+#    #+#             */
-<<<<<<< Updated upstream
-/*   Updated: 2018/09/26 23:05:32 by xinzhang         ###   ########.fr       */
-=======
+/*   Updated: 2018/10/02 21:29:54 by xinzhang         ###   ########.fr       */
 /*   Updated: 2018/09/30 15:20:00 by xinzhang         ###   ########.fr       */
->>>>>>> Stashed changes
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +43,7 @@ void stat_info(stat_dlist *dlist, char *fn)
 		gname = strdup(grp->gr_name);
 
 		dlist = appendnode(dlist, infoptr, dname, usrname, gname);
-		printf("the file block size is %lld\n", infoptr->st_blocks);
+//		printf("the file block size is %lld\n", infoptr->st_blocks);
 		if (!strcmp(dname,"."))
 			dlist->pa->fg & LS_l ? dlist->totalsize += infoptr->st_blocks: dlist->totalsize;
 		else if (!strcmp(dname, ".."))

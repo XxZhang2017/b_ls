@@ -5,7 +5,6 @@ void printdlist_a(stat_dlist *dl)
 	stat_node *tmp;
 	int	count;
 
-	sort_list(dl);
 	tmp = dl->head;
 	if(dl != NULL || dl->head != NULL)
 	{

@@ -1,27 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   init_dlist.c                                       :+:      :+:    :+:   */
+/*   init_param.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: xinzhang <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/09/23 21:05:09 by xinzhang          #+#    #+#             */
-/*   Updated: 2018/10/02 20:25:26 by xinzhang         ###   ########.fr       */
+/*   Created: 2018/09/28 23:13:05 by xinzhang          #+#    #+#             */
+/*   Updated: 2018/10/02 21:01:27 by xinzhang         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-stat_dlist	*init_dlist(param *p)
+param	*init_param()
 {
-	stat_dlist	*dlist;
-	dlist = (stat_dlist *)malloc(sizeof(stat_dlist));
-	dlist->pa = p;
-	dlist->head = NULL;
-	dlist->tail = NULL;
-	dlist->count = 0;
-	dlist->maxlen = 0;
-	dlist->totalsize = 0;
-	return (dlist);
-}
+	param	*pa;
 
+	pa = (param *)malloc(sizeof(param));
+	pa->fg = 0;
+	pa->error = 0;
+	pa->pdname = NULL;
+	pa->isfn =0;
+
+	return (pa);
+}

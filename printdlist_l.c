@@ -6,11 +6,8 @@
 /*   By: xinzhang <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/23 15:53:00 by xinzhang          #+#    #+#             */
-<<<<<<< Updated upstream
-/*   Updated: 2018/09/26 21:51:53 by xinzhang         ###   ########.fr       */
-=======
+/*   Updated: 2018/10/02 20:33:21 by xinzhang         ###   ########.fr       */
 /*   Updated: 2018/10/01 19:16:15 by xinzhang         ###   ########.fr       */
->>>>>>> Stashed changes
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +20,6 @@ void printdlist_l(stat_dlist *dl)
 	char buff[30];
 	char link[200];
 	
-	sort_list(dl);
 	tmp = dl->head;
 	printf("total %lld", dl->totalsize);
 
@@ -34,11 +30,7 @@ void printdlist_l(stat_dlist *dl)
 	{
 		if(tmp->sname[0] != '.')
 		{
-<<<<<<< Updated upstream
 			printf((S_ISDIR(tmp->stat_info->st_mode)) ? "d" : "-");
-=======
-//			printf((tmp->stat_info->st_mode & S_IFREG) == S_IFREG ? "-" : "no");  
->>>>>>> Stashed changes
 			printf((tmp->stat_info->st_mode & S_IRUSR) ? "r" : "-");
 			printf((tmp->stat_info->st_mode & S_IWUSR) ? "w" : "-");
 			printf((tmp->stat_info->st_mode & S_IXUSR) ? "x" : "-");
