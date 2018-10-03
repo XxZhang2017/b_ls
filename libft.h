@@ -6,7 +6,7 @@
 /*   By: xinzhang <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/10/02 20:20:48 by xinzhang          #+#    #+#             */
-/*   Updated: 2018/10/02 21:22:41 by xinzhang         ###   ########.fr       */
+/*   Updated: 2018/10/02 22:55:08 by xinzhang         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,7 @@
 # include <pwd.h>
 # include <grp.h>
 # include <time.h>
+
 
 # define LS_a	1
 # define LS_l	2
@@ -105,10 +106,10 @@ char        *parse_path(char *c, char *p, int *a);
 param *     init_param();
 
 //printf:
-void    print_permission(stat_node *tmp);
-void    print_type(stat_node *tmp);
-void    print_time(stat_node *tmp);
-void    print_stats(stat_node *tmp);
+void    print_permission(stat_node *tmp, param *p);
+void    print_type(stat_node *tmp, param *p);
+void    print_time(stat_node *tmp, param *p);
+void    print_stats(stat_node *tmp, param *p);
 void	print_name(stat_node *t, stat_dlist *dl);
 
 #endif
