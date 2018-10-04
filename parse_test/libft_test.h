@@ -6,7 +6,7 @@
 /*   By: xinzhang <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/10/02 20:20:48 by xinzhang          #+#    #+#             */
-/*   Updated: 2018/10/03 10:46:52 by xinzhang         ###   ########.fr       */
+/*   Updated: 2018/10/03 15:53:50 by xinzhang         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,10 +25,13 @@
 # include <time.h>
 
 
-# define LS_a	1
-# define LS_l	2
-# define LS_t	4
-# define LS_r	8
+# define LS_a			1
+# define LS_l			2
+# define LS_t			4
+# define LS_r			8
+
+# define ISFILE			3
+# define ISDIR			9
 
 typedef	struct stat			s_stat;
 typedef struct passwd		s_passwd;
@@ -105,9 +108,9 @@ void		sort_list_time_order(stat_dlist *l, TIME_PTR t, SORT_PTR s);
 param *     init_param();
 
 int         parsing(int ac, char **av, param *pa);
-int         parse_options(char *s, param *pa);  
+int			parsing_path(char *path, param *pa);
+int         parse_option(char *s, param *pa);  
 static int  ft_strchr_index(char *s, int c);      
-char        *parse_path(char *p, param *pa);
 int			parse_option_flag(char *s, int *flag);
 
 
