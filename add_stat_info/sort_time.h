@@ -16,7 +16,7 @@ typedef		struct stat_node
 {
 	stat_	*st_info;
 	char	*sname;
-	long	tm;
+//	long	tm;
 	struct stat_node	*next;
 }			stat_node;
 
@@ -32,7 +32,8 @@ typedef		long (*CMP_TIME)(long, long);
 stat_node	*init_st_node(char *s, stat_ *sn);
 st_list		*init_st_list(stat_node *sn);
 st_list		*append_st_node(st_list *sl, char *s, stat_ *sn); 
-void	get_stat_info(char *dn);
+
+void	get_stat_info(st_list *sl, char *dn);
 void	sort_by_time(stat_node *sn, CMP_TIME, int len);
 
 int		free_st_node(stat_node *sn);
