@@ -21,7 +21,7 @@ void	get_stat_info(st_list *mylist, char *fn)
 			lstat(strcat(path, dname), s_info);
 			mylist = append_st_node(mylist, dname, s_info);
 			free(dname);
-			plist(mylist);
+//			plist(mylist);
 		}
 		closedir(d);
 	}
