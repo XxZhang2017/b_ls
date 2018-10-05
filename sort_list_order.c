@@ -6,7 +6,7 @@
 /*   By: xinzhang <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/25 21:44:53 by xinzhang          #+#    #+#             */
-/*   Updated: 2018/10/04 15:18:58 by xinzhang         ###   ########.fr       */
+/*   Updated: 2018/10/04 21:39:05 by xinzhang         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ int re_sorted(char *a, char *b)
     return (-strcmp(a, b));
 }
 */
-void	sort_list_order(stat_node *sn, SORT_PTR sort, int len)
+void	sort_list_order(stat_dlist *dl, stat_node *sn, SORT_PTR sort, int len)
 {
 	stat_node	*tmp;
 	stat_node	*head;
@@ -42,8 +42,8 @@ void	sort_list_order(stat_node *sn, SORT_PTR sort, int len)
 			while (sn && sn->next)
 			{
 				flag = 0;
-				printf("----------------------------------------\n");
-				display(head);
+//				printf("----------------------------------------\n");
+//				display(head);
 				if (sort(sn->sname, sn->next->sname) > 0)
 				{
 					flag = 1;
@@ -73,4 +73,5 @@ void	sort_list_order(stat_node *sn, SORT_PTR sort, int len)
 			i--;
 		}		
 	}
+	dl->head = head;
 }

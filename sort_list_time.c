@@ -6,7 +6,7 @@
 /*   By: xinzhang <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/25 21:44:53 by xinzhang          #+#    #+#             */
-/*   Updated: 2018/10/04 15:53:59 by xinzhang         ###   ########.fr       */
+/*   Updated: 2018/10/04 21:49:05 by xinzhang         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ int re_sort_mtime(time_t t1, time_t t2)
     return (t2 - t1);
 }
 */
-void	sort_list_time(stat_node *sn, TIME_PTR t, int len)
+void	sort_list_time(stat_dlist *dl, stat_node *sn, TIME_PTR t, int len)
 {
 	stat_node	*tmp;
 	stat_node	*pre;
@@ -43,17 +43,17 @@ void	sort_list_time(stat_node *sn, TIME_PTR t, int len)
 //				printf("-----------------------\n");
 //				display(head);
 				flag = 0;
-				if (t(sn->stat_info->st_mtimespec.tv_nsec,  
-						sn->next->stat_info->st_mtimespec.tv_nsec) > 0)
+				if (t(sn->stat_info->st_mtimespec.tv_sec,  
+						sn->next->stat_info->st_mtimespec.tv_sec) > 0)
 				{
 					flag = 1;
 					if (pre == NULL)
 					{
-						printf("switch %ld  %s,  %ld  %s,\n",			 
-								sn->stat_info->st_mtimespec.tv_nsec,
-								sn->sname,						
-								(sn->next->stat_info->st_mtimespec).tv_nsec,
-								sn->next->next->sname);						
+//						printf("switch %ld  %s,  %ld  %s,\n",			 
+//								sn->stat_info->st_mtimespec.tv_nsec,
+//								sn->sname,						
+//								(sn->next->stat_info->st_mtimespec).tv_nsec,
+//								sn->next->next->sname);						
 								tmp = sn->next;								
 						sn->next = sn->next->next;								
 						tmp->next = sn;
@@ -62,11 +62,11 @@ void	sort_list_time(stat_node *sn, TIME_PTR t, int len)
 					}
 					else
 					{
-				printf("switch %ld  %s,  %ld  %s,\n",			 
-						sn->stat_info->st_mtimespec.tv_nsec,  
-						sn->sname,
-						(sn->next->stat_info->st_mtimespec).tv_nsec,  
-						sn->next->next->sname);
+//				printf("switch %ld  %s,  %ld  %s,\n",			 
+//						sn->stat_info->st_mtimespec.tv_nsec,  
+//						sn->sname,
+//						(sn->next->stat_info->st_mtimespec).tv_nsec,  
+//						sn->next->next->sname);
 				
 						pre->next = sn->next; 		
 							tmp = sn->next;	
@@ -84,4 +84,5 @@ void	sort_list_time(stat_node *sn, TIME_PTR t, int len)
 			i--;
 		}		
 	}
+	dl->head = head;
 }

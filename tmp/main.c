@@ -9,9 +9,9 @@ int	main()
 {
 	st_node	*sn;
 
-	sn = new_sn(34);
+	sn = new_sn(4);
 	sn->next = new_sn(34);
-	sn->next->next = new_sn(369);
+	sn->next->next = new_sn(36);
 	sn->next->next->next = new_sn(34);
 	sn->next->next->next->next = new_sn(9);
 

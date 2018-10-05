@@ -4,6 +4,7 @@ int	mt_sort(long t1, long t2)
 {
 	return (t1 - t2);
 }
+
 int	main()
 {
 	st_list *mylist;

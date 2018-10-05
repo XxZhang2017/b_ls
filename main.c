@@ -68,7 +68,7 @@ int main(int argc, char **argv)
 // 	display(dl->head);	
 
 	printf("--------------- sorting by time only\n");
-   	sort_list_time(dl->head, sort_mtime, dl->count);
+   	sort_list_time(dl, dl->head, sort_mtime, dl->count);
 	display(dl->head);
 //		printf("--------------- sorting by time and character order\n");	
 //	sort_list_time_order(dl, sort_mtime, sorted);

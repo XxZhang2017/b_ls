@@ -27,7 +27,7 @@ typedef		struct st_list
 	int			count;
 }			st_list;
 
-typedef		int (*CMP_TIME)(long, long);
+typedef		int (*CMP_TIME)(long t, long m);
 
 stat_node	*init_st_node(char *s, stat_ *sn);
 st_list		*init_st_list(stat_node *sn);

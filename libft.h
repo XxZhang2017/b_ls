@@ -78,7 +78,7 @@ void		updatelen(unsigned int *a, unsigned int b);
 stat_dlist	getnodeinfo(stat_dlist *a, int c);
 void		printnode(stat_node *a);
 
-void		sort_list_time_order(stat_dlist *l, TIME_PTR t, SORT_PTR s);
+//void		sort_list_time_order(stat_dlist *l, TIME_PTR t, SORT_PTR s);
 
 int         parsing(int ac, char **av, param *pa);
 
@@ -92,7 +92,7 @@ param *     init_param();
 
 
 void		display(stat_node *n);
-void		sort_list_order(stat_node *sn, SORT_PTR s, int len);
-void		sort_list_time(stat_node *sn, long (*f)(long, long), int len);
+void		sort_list_order(stat_dlist *dl, stat_node *sn, SORT_PTR s, int len);
+void		sort_list_time(stat_dlist *dl,stat_node *sn, long (*f)(long, long), int len);
 
 #endif
