@@ -6,7 +6,7 @@
 /*   By: xinzhang <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/25 21:44:53 by xinzhang          #+#    #+#             */
-/*   Updated: 2018/09/30 10:41:00 by xinzhang         ###   ########.fr       */
+/*   Updated: 2018/10/03 21:03:14 by xinzhang         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,8 +39,8 @@ void	sort_list_time_order(stat_dlist *l, TIME_PTR t, SORT_PTR sort)
 		sn = l->head;
 		while ( sn != NULL && sn->next != NULL)
 		{
-			if (t(sn->stat_info->st_mtimespec.tv_sec,  
-						sn->next->stat_info->st_mtimespec.tv_sec) == 0 && sort(sn->sname, sn->next->sname) > 0) 
+			if (t(sn->stat_info->st_mtimespec.tv_nsec,  
+						sn->next->stat_info->st_mtimespec.tv_nsec) == 0 && sort(sn->sname, sn->next->sname) > 0) 
 			{
 				flag = 1;
 				if (pre == NULL)

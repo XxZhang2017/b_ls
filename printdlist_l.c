@@ -6,7 +6,7 @@
 /*   By: xinzhang <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/23 15:53:00 by xinzhang          #+#    #+#             */
-/*   Updated: 2018/09/30 10:45:43 by xinzhang         ###   ########.fr       */
+/*   Updated: 2018/10/04 14:21:52 by xinzhang         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,10 @@ void printdlist_l(stat_dlist *dl)
 	printf("total %lu\n", dl->totalsize);
 
 	printf("\n");
-	if(dl != NULL || dl->head != NULL)
+	printf("will  print more\n");
+	if (!dl) printf("dl is null\n");
+	if (!(dl->head)) printf("dl->head null\n");
+	if(dl && dl->head)
 	{
 	while (tmp != NULL)
 	{

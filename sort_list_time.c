@@ -6,7 +6,7 @@
 /*   By: xinzhang <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/25 21:44:53 by xinzhang          #+#    #+#             */
-/*   Updated: 2018/09/30 10:23:33 by xinzhang         ###   ########.fr       */
+/*   Updated: 2018/10/04 15:53:59 by xinzhang         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,54 +22,66 @@ int re_sort_mtime(time_t t1, time_t t2)
     return (t2 - t1);
 }
 */
-void	sort_list_time(stat_dlist *l, TIME_PTR t)
+void	sort_list_time(stat_node *sn, TIME_PTR t, int len)
 {
-	stat_node	*sn;
 	stat_node	*tmp;
-
 	stat_node	*pre;
-	
+	stat_node	*head;
 	int		flag;
-	flag = 0;
+	int	i;
 
-	int	len = l->count;
-	while (len > 0)
+	head = sn;
+	i = len - 1;
+	if (len >= 2)
 	{
-		pre = NULL;
-		sn = l->head;
-		while ( sn != NULL && sn->next != NULL)
+		while (i > 0)
 		{
-//			printf("%s, signed %ld, unsigned %ld\n", sn->sname,sn->stat_info->st_mtime, sn->next->stat_info->st_mtime);
-		
-			if (t(sn->stat_info->st_mtimespec.tv_sec,  
-						sn->next->stat_info->st_mtimespec.tv_sec) < 0)
+			pre = NULL;
+			sn = head;
+			while (sn && sn->next)
 			{
-//			printf("signed %ld, unsigned %lu\n", sn->stat_info->st_mtime - sn->next->stat_info->st_mtime,sn->stat_info->st_mtime - sn->next->stat_info->st_mtime); 	
-//		mytime = localtime(&(tmp->stat_info->st_mtime));
-//			strftime(buff, 30, "%b %d %H:%M", mytime);
-			
-				printf("%s, signed %ld, %s , signed %ld\n", sn->sname,sn->stat_info->st_mtimespec.tv_sec, sn->next->sname, sn->next->stat_info->st_mtimespec.tv_sec);
-				flag = 1;
-				if (pre == NULL)
+//				printf("-----------------------\n");
+//				display(head);
+				flag = 0;
+				if (t(sn->stat_info->st_mtimespec.tv_nsec,  
+						sn->next->stat_info->st_mtimespec.tv_nsec) > 0)
 				{
-					tmp = sn->next;
-					sn->next = sn->next->next;
-					tmp->next = sn;
-					l->head = tmp;
+					flag = 1;
+					if (pre == NULL)
+					{
+						printf("switch %ld  %s,  %ld  %s,\n",			 
+								sn->stat_info->st_mtimespec.tv_nsec,
+								sn->sname,						
+								(sn->next->stat_info->st_mtimespec).tv_nsec,
+								sn->next->next->sname);						
+								tmp = sn->next;								
+						sn->next = sn->next->next;								
+						tmp->next = sn;
+						head = tmp;
+						pre = head;
+					}
+					else
+					{
+				printf("switch %ld  %s,  %ld  %s,\n",			 
+						sn->stat_info->st_mtimespec.tv_nsec,  
+						sn->sname,
+						(sn->next->stat_info->st_mtimespec).tv_nsec,  
+						sn->next->next->sname);
+				
+						pre->next = sn->next; 		
+							tmp = sn->next;	
+						sn->next = sn->next->next; 			
+						tmp->next = sn;
+						pre = pre->next;
+					}
 				}
-				else
+				if (!flag)
 				{
-					tmp = sn->next;
-					pre->next = sn->next;
-					sn->next = sn->next->next;
-					tmp->next = sn;
+					pre = sn;
+					sn = sn->next;
 				}
 			}
-			pre = sn;
-			sn = sn->next;
-		}
-		if (!flag)
-			break;
-		len--;
-	}		
+			i--;
+		}		
+	}
 }
