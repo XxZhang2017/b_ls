@@ -6,11 +6,20 @@
 /*   By: xinzhang <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/10/03 09:10:01 by xinzhang          #+#    #+#             */
-/*   Updated: 2018/10/05 16:20:24 by xinzhang         ###   ########.fr       */
+/*   Updated: 2018/10/05 17:52:35 by xinzhang         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft_test.h"
+mode_t	get_mode(char *c)
+{
+	stat_	*buf;
+
+	if (lstat(c, buf) == 0)
+		return (buf->st_mode);
+	printf("lstat failed when parse not path specify case\n");
+	return (0);
+}
 
 int	parsing(int ac, char **av, param *pa)
 {
@@ -32,31 +41,21 @@ int	parsing(int ac, char **av, param *pa)
 	{
 		while (n < ac)
 		{
-			printf("process\n");
-			reg[0] = parsing_path(av[n], pa);
-			reg[1] = parse_option(av[n], pa);
-			if (reg[0])
-				return (1);
-			else if (reg[0] || reg[1])
+			if (parsing_option(av[n], pa))
+				return (parsing_path(av[n], pa));
+			else				
 				n++;
-			else if (!(reg[0] && reg[1]))
-			{
-				printf("path does not exit and option does not exit\n");
-				exit(1);
-			}
-			else
-			{
-				printf("unspecified condition\n");
-				exit(1);
-			}
 		}
-		if (pa->pdname == NULL)
+		if (!(pa->pf).pdname)
 		{
-			pa->pdname = strdup(".");
-			pa->isfn = ISDIR;
-			return (1);
+			(pa->pf).pdanme = strdup(".");
+			if(((pa->pf).p_mode = get_mode(pa->pf->pdname)) != 1)
+				return (0);
+			else
+				return (1);
 		}
+		else
+		{
+			printf("underminate condition\n");
 	}
-	printf("parsing error, missing condition in parsing function\n");
-	exit(1);
 }
